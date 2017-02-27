@@ -4,6 +4,12 @@ var request = require('request')
 require('dotenv').config()
 var app = express()
 
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
 app.get('/api/weather', function(req, res) {
 	var lat = req.query.lat
 	var lon = req.query.lon
