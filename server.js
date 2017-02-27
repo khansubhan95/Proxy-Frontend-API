@@ -23,9 +23,10 @@ app.get('/api/weather', function(req, res) {
 })
 
 app.get('/api/quotes', function(req, res) {
-	var APIEndPoint = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?'
+	var APIEndPoint = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json'
 	request.get(APIEndPoint, function(err, response, body) {
 		if (!err && response.statusCode===200) {
+			console.log(body);
 			var data = JSON.parse(body)
 			res.json(data)
 		}
