@@ -22,5 +22,15 @@ app.get('/api/weather', function(req, res) {
 	})
 })
 
+app.get('/api/quotes', function(req, res) {
+	var APIEndPoint = 'http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?'
+	request.get(APIEndPoint, function(err, response, body) {
+		if (!err && response.statusCode===200) {
+			var data = JSON.parse(body)
+			res.json(data)
+		}
+	})
+})
+
 app.listen(process.env.PORT || 3000)
 console.log('Server running on port 3000');
