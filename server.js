@@ -5,10 +5,8 @@ require('dotenv').config()
 var app = express()
 
 app.use(function(req, res, next) {
-	res.setHeader('Access-Control-Allow-Origin', 'https://khansubhan95.github.io/');
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', false);
+	res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
 
